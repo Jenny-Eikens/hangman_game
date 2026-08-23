@@ -28,6 +28,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         ArrayList<Character> wordState = new ArrayList<>();
+        ArrayList<Character> seen = new ArrayList<>();
         int wrongGuesses = 0;
 
         for (int i = 0; i < word.length(); i++) {
@@ -53,18 +54,27 @@ public class Main {
             char guess = scanner.next().toLowerCase().charAt(0);
 
             if (word.indexOf(guess) > -1) {
-                System.out.println("Correct guess!");
-                System.out.println();
+                if (!seen.contains(guess)) {
+                    seen.add(guess);
+                    System.out.println("Correct guess!");
+                    System.out.println();
 
-                for (int i = 0; i < word.length(); i++) {
-                    if (word.charAt(i) == guess) {
-                        wordState.set(i, guess);
+                    for (int i = 0; i < word.length(); i++) {
+                        if (word.charAt(i) == guess) {
+                            wordState.set(i, guess);
+                        }
                     }
+                    System.out.println("************************");
+                } else {
+                    System.out.println("Already guessed!");
+                    System.out.println("************************");
+                    System.out.println();
                 }
             } else {
                 System.out.println("Wrong guess!");
                 wrongGuesses++;
                 System.out.println(getHangmanArt(wrongGuesses));
+                System.out.println("************************");
             }
 
             if (!wordState.contains('_')) {
