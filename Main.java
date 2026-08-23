@@ -42,7 +42,6 @@ public class Main {
                 """);
 
         while (wrongGuesses <= 6) {
-            // System.out.println(getHangmanArt(wrongGuesses));
             System.out.print("Word: ");
             for (char c : wordState) {
                 System.out.print(c + " ");
@@ -69,7 +68,6 @@ public class Main {
             }
 
             if (!wordState.contains('_')) {
-                // System.out.println(getHangmanArt(wrongGuesses));
                 System.out.println("YOU WIN!");
                 System.out.print("The word was: ");
                 for (char c : wordState) {
@@ -79,7 +77,7 @@ public class Main {
             }
         }
 
-        if (wrongGuesses > 5) {
+        if (wrongGuesses >= 6) {
             System.out.print(getHangmanArt(wrongGuesses));
             System.out.println("GAME OVER!");
             System.out.println("The word was: " + word);
