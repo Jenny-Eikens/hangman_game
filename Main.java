@@ -42,7 +42,7 @@ public class Main {
                 
                 """);
 
-        while (wrongGuesses <= 6) {
+        while (wrongGuesses < 6) {
             System.out.print("Word: ");
             for (char c : wordState) {
                 System.out.print(c + " ");
