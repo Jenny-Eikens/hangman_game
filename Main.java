@@ -59,8 +59,7 @@ public class Main {
                 System.out.println("Already guessed!");
                 System.out.println("************************");
                 System.out.println();
-            } else {
-                if (word.indexOf(guess) > -1) {
+            } else if (word.indexOf(guess) > -1) {
                 System.out.println("Correct guess!");
                 System.out.println("************************");
                 System.out.println();
