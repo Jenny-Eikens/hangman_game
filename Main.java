@@ -52,29 +52,30 @@ public class Main {
                     """);
             System.out.print("Guess a letter: ");
             char guess = scanner.next().toLowerCase().charAt(0);
+
             if (!seen.contains(guess)) {
-                    seen.add(guess);
-            }
-            if (seen.contains(guess)) {
-                System.out.println("Already guessed!");
-                System.out.println("************************");
-                System.out.println();
-            } else if (word.indexOf(guess) > -1) {
-                System.out.println("Correct guess!");
-                System.out.println("************************");
-                System.out.println();
-                for (int i = 0; i < word.length(); i++) {
-                    if (word.charAt(i) == guess) {
-                        wordState.set(i, guess);
+                if (word.indexOf(guess) > -1) {
+                    System.out.println("Correct guess!");
+                    System.out.println("************************");
+                    System.out.println();
+                    for (int i = 0; i < word.length(); i++) {
+                        if (word.charAt(i) == guess) {
+                            wordState.set(i, guess);
+                        }
                     }
-                }
-            } else {
+                } else {
                 System.out.println("Wrong guess!");
                 wrongGuesses++;
                 System.out.println(getHangmanArt(wrongGuesses));
                 System.out.println("************************");
             }
-
+                seen.add(guess);
+            } else {
+                System.out.println("Already guessed!");
+                System.out.println("************************");
+                System.out.println();
+            } 
+            
             if (!wordState.contains('_')) {
                 System.out.println("YOU WIN!");
                 System.out.print("The word was: ");
