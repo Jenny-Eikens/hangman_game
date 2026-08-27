@@ -150,7 +150,7 @@ public class Main {
         default: 
             result = "";
             break;
-    };
+        }
     return result;
     }
 }
