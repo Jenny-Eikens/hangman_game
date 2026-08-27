@@ -52,24 +52,25 @@ public class Main {
                     """);
             System.out.print("Guess a letter: ");
             char guess = scanner.next().toLowerCase().charAt(0);
+            if (!seen.contains(guess)) {
+                    seen.add(guess);
+            }
 
             if (word.indexOf(guess) > -1) {
-                if (!seen.contains(guess)) {
-                    seen.add(guess);
-                    System.out.println("Correct guess!");
+                if (seen.contains(guess)) {
+                    System.out.println("Already guessed!");
+                    System.out.println("************************");
                     System.out.println();
-
+                } else {  
+                    System.out.println("Correct guess!");
+                    System.out.println("************************");
+                    System.out.println();
                     for (int i = 0; i < word.length(); i++) {
                         if (word.charAt(i) == guess) {
                             wordState.set(i, guess);
                         }
                     }
-                    System.out.println("************************");
-                } else {
-                    System.out.println("Already guessed!");
-                    System.out.println("************************");
-                    System.out.println();
-                }
+                } 
             } else {
                 System.out.println("Wrong guess!");
                 wrongGuesses++;
